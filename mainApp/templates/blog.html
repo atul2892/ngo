@@ -1,0 +1,396 @@
+{%extends "index.html"%}
+{%load static%}
+{%block body%}
+
+        <div class="hero hero--sm"
+            style="background-image:url( {%static 'wp-content/themes/wisdom-of-life/assets/img/blog-hero.jpg'%});">
+            <div class="container">
+                <div class="content">
+                    <h1>Blog</h1>
+                </div>
+            </div>
+        </div>
+        <main>
+            <div class="content-wrapper container">
+                <div class="inner-content">
+                    <div class="content-title">
+                        <h2>Latest Posts</h2>
+                    </div>
+
+                    <div id="primary" class="content-group content-group--column-2">
+                        <div class="content">
+                            <!-- <div
+                                class="card card--has-shadow card--blog-main post-1 post type-post status-publish format-standard hentry category-uncategorized">
+                                <div class="row no-gutters">
+                                    <div class="col-md-12">
+                                        <div class="card-body">
+                                            <h2 class="card-title"><a href="../hello-world/index.html"
+                                                    rel="bookmark">Hello world!</a></h2>
+                                            <div class="post-data">
+
+                                                <div class="date">
+                                                    <i class="icon icon-calendar"></i><span>April 25, 2024</span>
+                                                </div>
+                                                <div class="author"><i class="icon icon-avatar"></i> <span>Posted by :
+                                                        <strong><a class="url fn n"
+                                                                href="../author/nyaymanchtrust/index.html">nyaymanchtrust</a></strong></span>
+                                                </div>
+                                                <div class="comment">
+                                                    <i class="icon icon-comment"></i> <a
+                                                        href="../hello-world/index.html#comments"><span>1</span></a>
+                                                </div>
+                                            </div>
+                                            <div class="card-text">
+                                                <p>Welcome to WordPress. This is your first post. Edit or delete it,
+                                                    then start writing!</p>
+                                            </div>
+                                            <a class="cs-btn-flat cs-btn-flat--dark"
+                                                href="../hello-world/index.html"><span>Read More</span><i
+                                                    class="icon icon-right-arrow"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="cards row">
+                                {%for i in bldatafinal%}
+                                <div
+                                    class="col-12 col-md-6 col-lg-6 post-1982 post type-post status-publish format-video has-post-thumbnail hentry category-island tag-video post_format-post-format-video">
+                                    <div class="card card--blog">
+
+                                        <a class="post-thumbnail" href="/blog-detail/{{i.id}}"
+                                            aria-hidden="true" tabindex="-1">
+                                            <img src="{{i.image.url}}" width="100%" style="height: 250px;" alt="">
+                                        </a>
+
+                                        <div class="card-body">
+                                            <div class="post-data post-data--top">
+                                                <div class="date">
+                                                    <i class="icon icon-calendar"></i><span>{{i.date}}</span>
+                                                </div>
+                                                <!-- <div class="comment">
+                                                    <i class="icon icon-comment"></i> <a
+                                                        href="/blog-detail#respond"><span>0</span></a>
+                                                </div> -->
+                                            </div>
+                                            <h2 class="card-title"><a
+                                                    href="/blog-detail/{{i.id}}"
+                                                    rel="bookmark">{{i.title}}</a></h2>
+                                            <div class="card-text">
+                                                <p>{{i.content|safe|slice:":120"}}
+                                                    [&hellip;]</p>
+                                            </div>
+                                            <div class="post-data post-data--bottom">
+                                                <div class="author"><i class="icon icon-avatar"></i> <span>Posted by :
+                                                        <strong>admin</strong></span>
+                                                </div>
+                                                <a class="cs-btn-flat cs-btn-flat--dark"
+                                                    href="/blog-detail/{{i.id}}"><span>Read
+                                                        More</span><i class="icon icon-right-arrow"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {%endfor%}
+                                <!-- <div
+                                    class="col-12 col-md-6 col-lg-6 post-1979 post type-post status-publish format-standard has-post-thumbnail hentry category-health tag-coronavirus tag-virus">
+                                    <div class="card card--blog">
+
+                                        <a class="post-thumbnail"
+                                            href="../coronavirus-event-postponements-mean-nonprofits/index.html"
+                                            aria-hidden="true" tabindex="-1">
+                                        </a>
+
+                                        <div class="card-body">
+                                            <div class="post-data post-data--top">
+                                                <div class="date">
+                                                    <i class="icon icon-calendar"></i><span>March 18, 2020</span>
+                                                </div>
+                                                <div class="comment">
+                                                    <i class="icon icon-comment"></i> <a
+                                                        href="../coronavirus-event-postponements-mean-nonprofits/index.html#respond"><span>0</span></a>
+                                                </div>
+                                            </div>
+                                            <h2 class="card-title"><a
+                                                    href="../coronavirus-event-postponements-mean-nonprofits/index.html"
+                                                    rel="bookmark">Coronavirus event postponements mean nonprofits</a>
+                                            </h2>
+                                            <div class="card-text">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris
+                                                    [&hellip;]</p>
+                                            </div>
+                                            <div class="post-data post-data--bottom">
+                                                <div class="author"><i class="icon icon-avatar"></i> <span>Posted by :
+                                                        <strong><a class="url fn n"
+                                                                href="../author/nyaymanchtrust/index.html">nyaymanchtrust</a></strong></span>
+                                                </div>
+                                                <a class="cs-btn-flat cs-btn-flat--dark"
+                                                    href="../coronavirus-event-postponements-mean-nonprofits/index.html"><span>Read
+                                                        More</span><i class="icon icon-right-arrow"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-12 col-md-6 col-lg-6 post-1976 post type-post status-publish format-standard has-post-thumbnail hentry category-child-abuse category-children category-uk">
+                                    <div class="card card--blog">
+
+                                        <a class="post-thumbnail"
+                                            href="../7-minutes-child-abuse-image-offence/index.html" aria-hidden="true"
+                                            tabindex="-1">
+                                        </a>
+
+                                        <div class="card-body">
+                                            <div class="post-data post-data--top">
+                                                <div class="date">
+                                                    <i class="icon icon-calendar"></i><span>March 18, 2020</span>
+                                                </div>
+                                                <div class="comment">
+                                                    <i class="icon icon-comment"></i> <a
+                                                        href="../7-minutes-child-abuse-image-offence/index.html#respond"><span>0</span></a>
+                                                </div>
+                                            </div>
+                                            <h2 class="card-title"><a
+                                                    href="../7-minutes-child-abuse-image-offence/index.html"
+                                                    rel="bookmark">Child abuse offense recorded every 7 minutes in the
+                                                    UK</a></h2>
+                                            <div class="card-text">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris
+                                                    [&hellip;]</p>
+                                            </div>
+                                            <div class="post-data post-data--bottom">
+                                                <div class="author"><i class="icon icon-avatar"></i> <span>Posted by :
+                                                        <strong><a class="url fn n"
+                                                                href="../author/nyaymanchtrust/index.html">nyaymanchtrust</a></strong></span>
+                                                </div>
+                                                <a class="cs-btn-flat cs-btn-flat--dark"
+                                                    href="../7-minutes-child-abuse-image-offence/index.html"><span>Read
+                                                        More</span><i class="icon icon-right-arrow"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-12 col-md-6 col-lg-6 post-1855 post type-post status-publish format-standard has-post-thumbnail hentry category-child-abuse category-children tag-lorem tag-news">
+                                    <div class="card card--blog">
+
+                                        <a class="post-thumbnail"
+                                            href="../a-celebration-of-life-and-child-abuse/index.html"
+                                            aria-hidden="true" tabindex="-1">
+                                        </a>
+
+                                        <div class="card-body">
+                                            <div class="post-data post-data--top">
+                                                <div class="date">
+                                                    <i class="icon icon-calendar"></i><span>February 26, 2020</span>
+                                                </div>
+                                                <div class="comment">
+                                                    <i class="icon icon-comment"></i> <a
+                                                        href="../a-celebration-of-life-and-child-abuse/index.html#respond"><span>0</span></a>
+                                                </div>
+                                            </div>
+                                            <h2 class="card-title"><a
+                                                    href="../a-celebration-of-life-and-child-abuse/index.html"
+                                                    rel="bookmark">A Celebration of Life and Child Abuse</a></h2>
+                                            <div class="card-text">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris
+                                                    [&hellip;]</p>
+                                            </div>
+                                            <div class="post-data post-data--bottom">
+                                                <div class="author"><i class="icon icon-avatar"></i> <span>Posted by :
+                                                        <strong><a class="url fn n"
+                                                                href="../author/nyaymanchtrust/index.html">nyaymanchtrust</a></strong></span>
+                                                </div>
+                                                <a class="cs-btn-flat cs-btn-flat--dark"
+                                                    href="../a-celebration-of-life-and-child-abuse/index.html"><span>Read
+                                                        More</span><i class="icon icon-right-arrow"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-12 col-md-6 col-lg-6 post-1854 post type-post status-publish format-standard has-post-thumbnail hentry category-children category-environment category-health category-years">
+                                    <div class="card card--blog">
+
+                                        <a class="post-thumbnail" href="../child-cruelty-neglect-crimes-rise/index.html"
+                                            aria-hidden="true" tabindex="-1">
+                                        </a>
+
+                                        <div class="card-body">
+                                            <div class="post-data post-data--top">
+                                                <div class="date">
+                                                    <i class="icon icon-calendar"></i><span>February 26, 2020</span>
+                                                </div>
+                                                <div class="comment">
+                                                    <i class="icon icon-comment"></i> <a
+                                                        href="../child-cruelty-neglect-crimes-rise/index.html#respond"><span>0</span></a>
+                                                </div>
+                                            </div>
+                                            <h2 class="card-title"><a
+                                                    href="../child-cruelty-neglect-crimes-rise/index.html"
+                                                    rel="bookmark">Child cruelty and neglect crimes continue to rise
+                                                    every year</a></h2>
+                                            <div class="card-text">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris
+                                                    [&hellip;]</p>
+                                            </div>
+                                            <div class="post-data post-data--bottom">
+                                                <div class="author"><i class="icon icon-avatar"></i> <span>Posted by :
+                                                        <strong><a class="url fn n"
+                                                                href="../author/nyaymanchtrust/index.html">nyaymanchtrust</a></strong></span>
+                                                </div>
+                                                <a class="cs-btn-flat cs-btn-flat--dark"
+                                                    href="../child-cruelty-neglect-crimes-rise/index.html"><span>Read
+                                                        More</span><i class="icon icon-right-arrow"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                        <aside id="secondary" class="sidebar sidebar-widgets">
+                            <!-- <div id="block-2" class="widget block block--sidebar widget_block widget_search">
+                                <form role="search" method="get" action="https://demo.navdhara.com/"
+                                    class="wp-block-search__button-outside wp-block-search__text-button wp-block-search">
+                                    <label class="wp-block-search__label" for="wp-block-search__input-1">Search</label>
+                                    <div class="wp-block-search__inside-wrapper "><input class="wp-block-search__input"
+                                            id="wp-block-search__input-1" placeholder="" value="" type="search" name="s"
+                                            required /><button aria-label="Search"
+                                            class="wp-block-search__button wp-element-button"
+                                            type="submit">Search</button></div>
+                                </form>
+                            </div> -->
+                            <div id="block-3" class="widget block block--sidebar widget_block">
+                                <div class="wp-block-group">
+                                    <div
+                                        class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
+                                        <h2 class="wp-block-heading">Recent Posts</h2>
+                                        <ul class="wp-block-latest-posts__list wp-block-latest-posts">
+                                            <li></li>
+
+                                            {%for i in blsdata%}
+                                            <li><a class="wp-block-latest-posts__post-title"
+                                                href="/blog-detail/{{i.id}}">{{i.title}}</a>
+                                            </li>
+                                            {%endfor%}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div id="block-4" class="widget block block--sidebar widget_block">
+                                <div class="wp-block-group">
+                                    <div
+                                        class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
+                                        <h2 class="wp-block-heading">Recent Comments</h2>
+                                        <ol class="wp-block-latest-comments">
+                                            <li class="wp-block-latest-comments__comment">
+                                                <article>
+                                                    <footer class="wp-block-latest-comments__comment-meta"><a
+                                                            class="wp-block-latest-comments__comment-author"
+                                                            href="https://wordpress.org/">A WordPress Commenter</a> on
+                                                        <a class="wp-block-latest-comments__comment-link"
+                                                            href="../hello-world/index.html#comment-1">Hello world!</a>
+                                                    </footer>
+                                                </article>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="categories-1" class="widget block block--sidebar widget_categories">
+                                <div class="block-header">
+                                    <h2 class="block-title">Categories</h2>
+                                </div>
+                                <ul>
+                                    <li class="cat-item cat-item-19"><a href="../category/child-abuse/index.html">Child
+                                            Abuse</a>
+                                    </li>
+                                    <li class="cat-item cat-item-25"><a
+                                            href="../category/children/index.html">Children</a>
+                                    </li>
+                                    <li class="cat-item cat-item-35"><a
+                                            href="../category/environment/index.html">Environment</a>
+                                    </li>
+                                    <li class="cat-item cat-item-45"><a href="../category/health/index.html">Health</a>
+                                    </li>
+                                    <li class="cat-item cat-item-48"><a href="../category/island/index.html">Island</a>
+                                    </li>
+                                    <li class="cat-item cat-item-71"><a href="../category/uk/index.html">UK</a>
+                                    </li>
+                                    <li class="cat-item cat-item-1"><a
+                                            href="../category/uncategorized/index.html">Uncategorized</a>
+                                    </li>
+                                    <li class="cat-item cat-item-78"><a href="../category/years/index.html">years</a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                            <div id="archives-1" class="widget block block--sidebar widget_archive">
+                                <div class="block-header">
+                                    <h2 class="block-title">Blog Archive</h2>
+                                </div>
+                                <ul>
+                                    <li><a href='../2024/04/index.html'>April 2024</a></li>
+                                    <li><a href='../2020/03/index.html'>March 2020</a></li>
+                                    <li><a href='../2020/02/index.html'>February 2020</a></li>
+                                </ul>
+
+                            </div> -->
+                            <!-- <div id="media_image-1" class="widget block block--sidebar widget_media_image"><img
+                                    class="image "
+                                    src="../../wisdom.extracoding.com/wp-content/uploads/sites/4/2020/03/banner-lg.html"
+                                    alt="" width="276" height="659" decoding="async" />
+                            </div> -->
+                        </aside>
+                    </div>
+                </div>
+
+
+            </div><!-- .content-wrapper -->
+
+            <center>
+                <div class="pagination">
+                    {%if bldatafinal.has_previous%}
+                    <a href="/blog/?page={{bldatafinal.previous_page_number}}" class="active">Pre..</a>
+                    {% endif %}
+                    <!-- <a href="#">1</a> -->
+                    {%  for n in page_range %}
+                    <a href="/blog/?page={{n}}" class="{%if bldatafinal.number == n%}active{%endif%}">{{n}}</a>
+                    {% endfor %}
+                    <!-- <a href="#">3</a> -->
+                    {% if bldatafinal.has_next %}
+                    <a href="/blog/?page={{bldatafinal.next_page_number}}" class="active">Next</a>
+                    {% endif %}
+                </div>
+            </center>
+
+            <style>
+                
+                .pagination {
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 20px;
+                }
+                .pagination a {
+                    color: #333;
+                    text-decoration: none;
+                    padding: 8px 16px;
+                    border: 1px solid #ddd;
+                    margin: 0 5px;
+                    transition: background 0.3s ease;
+                }
+                .pagination a:hover {
+                    background: #ddd;
+                }
+                .pagination .active {
+                    background: #c00303;
+                    color: #fff;
+                }
+            </style>
+            
+        </main>
+
+        {%endblock%}

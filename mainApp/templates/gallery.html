@@ -1,0 +1,107 @@
+{%extends "index.html"%}
+{%load static%}
+{%block body%}
+
+
+<main>
+	<div class="content-wrapper container">
+		<div data-elementor-type="wp-page" data-elementor-id="212" class="elementor elementor-212">
+			<section
+				class="elementor-section elementor-top-section elementor-element elementor-element-304938f elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+				data-id="304938f" data-element_type="section">
+				<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-f0e3fee"
+						data-id="f0e3fee" data-element_type="column">
+						<div class="elementor-widget-wrap elementor-element-populated">
+							<div class="elementor-element elementor-element-487ea11 elementor-widget elementor-widget-wl-gallery"
+								data-id="487ea11" data-element_type="widget"
+								data-widget_type="wl-gallery.default">
+								<div class="elementor-widget-container">
+									<div class="sortable-masonry">
+										<!-- <div class="sort-bar filters">
+											<span>Sort By:</span>
+											<ul class="filter-tabs filter-btns clearfix">
+												<li class="active filter" data-role="button" data-filter=".all"
+													id="filter-view-all">View All</li>
+												<li class="filter" data-role="button" data-filter=".videos">
+													Videos</li>
+												<li class="filter" data-role="button" data-filter=".images">
+													Images</li>
+											</ul>
+										</div> -->
+										<div class="gallery">
+											<div class="row clearfix items-container">
+
+												{%for i in gldatafinal%}
+												<div
+													class="default-portfolio-item mix masonry-item all images col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+													<a href="{{i.image.url}}"
+														class="gallery-item" data-fancybox="gallery">
+														<figure><img fetchpriority="high" decoding="async"
+																width="303" height="175" style="height: 175px;"
+																src="{{i.image.url}}"
+																class="img-fluid" alt=""
+																srcset="{{i.image.url}}"
+																sizes="(max-width: 303px) 100vw, 303px" />
+														</figure>
+													</a>
+													<!-- <div>5 Ways Of CHIRTY That Can Drive</div> -->
+												</div>
+												{%endfor%}
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			
+		</div>
+
+	</div><!-- .content-wrapper -->
+
+	<center>
+		<div class="pagination">
+			{%if gldatafinal.has_previous%}
+			<a href="/gallery/?page={{gldatafinal.previous_page_number}}" class="active">Pre..</a>
+			{% endif %}
+			<!-- <a href="#">1</a> -->
+			{%  for n in page_range %}
+			<a href="/gallery/?page={{n}}" class="{%if gldatafinal.number == n%}active{%endif%}">{{n}}</a>
+			{% endfor %}
+			<!-- <a href="#">3</a> -->
+			{% if gldatafinal.has_next %}
+			<a href="/gallery/?page={{gldatafinal.next_page_number}}" class="active">Next</a>
+			{% endif %}
+		</div>
+	</center>
+
+	<style>
+		
+		.pagination {
+			display: flex;
+			justify-content: center;
+			margin-top: 20px;
+		}
+		.pagination a {
+			color: #333;
+			text-decoration: none;
+			padding: 8px 16px;
+			border: 1px solid #ddd;
+			margin: 0 5px;
+			transition: background 0.3s ease;
+		}
+		.pagination a:hover {
+			background: #ddd;
+		}
+		.pagination .active {
+			background: #c00303;
+			color: #fff;
+		}
+	</style>
+
+</main>
+{%endblock%}
